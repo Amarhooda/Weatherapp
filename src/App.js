@@ -5,6 +5,7 @@ import TimeAndLocation from "./Components/TimeAndLocation";
 import TemperatureAndDetails from "./Components/TemperatureAndDetails";
 import getFormattedWeatherData from "./services/weatherServices";
 import { useEffect, useState } from "react";
+import Forecast from "./Components/Forecast";
 
 function App() {
   const [query, setQuery] = useState({ q: "berlin" });
@@ -40,6 +41,8 @@ function App() {
         <div>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
+          <Forecast title="hourly forecast" items={weather.hourly} />
+          <Forecast title="daily forecast" items={weather.daily} />
         </div>
       )}
     </div>
