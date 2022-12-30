@@ -28,38 +28,40 @@ function Inputs({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center my-6">
-      <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
+    <div className="flex flex-row max-md:flex-col justify-center my-6">
+      <hr className="my-2"/>
+      <div className="flex mx-6 max-md:ml-0 space-x-4 w-full ">
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
           type="text"
           placeholder="Search for city...."
-          className="text-xl font-light p-2 w-full shadow-xl capitalize"
+          className="text-xl max-md:text-sm rounded-xl font-light p-2 w-4/5 shadow-xl capitalize"
         />
         <UilSearch
-          size={35}
-          className="text-white cursor-pointer transition ease-in-out hover:scale-125"
+          size={40}
+          className="text-white cursor-pointer hover:bg-blue-500 rounded-md my-2 max-md:w-1/5 transition ease-in-out hover:scale-125"
           onClick={handleSearchClick}
         />
-        <UilLocationPoint
-          size={35}
-          className="text-white cursor-pointer transition ease-in-out hover:scale-125"
-          onClick={handleLocationClick}
-        />
       </div>
-
-      <div className="flex flex-row w-1/4 items-center justify-center">
+      <div className="flex flex-row items-center p-4 justify-center">
+        <div>
+          <UilLocationPoint
+            size={50}
+            className="text-white cursor-pointer px-2  rounded-lg hover:bg-slate-400  transition ease-in-out hover:scale-125"
+            onClick={handleLocationClick}
+          />
+        </div>
         <button
           name="metric"
-          className="text-2xl text-white font-medium transition ease-in-out hover:scale-125"
+          className="text-3xl text-white font-medium rounded-lg hover:bg-slate-400  px-2 transition ease-in-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °C
         </button>
         <button
           name="imperial"
-          className="text-2xl text-white font-medium ml-3 transition ease-in-out hover:scale-125"
+          className="text-3xl text-white font-medium  rounded-lg hover:bg-slate-400 ml-3 px-2 transition ease-in-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °F

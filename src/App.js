@@ -5,7 +5,6 @@ import TimeAndLocation from "./Components/TimeAndLocation";
 import TemperatureAndDetails from "./Components/TemperatureAndDetails";
 import getFormattedWeatherData from "./services/weatherServices";
 import { useEffect, useState } from "react";
-import Forecast from "./Components/Forecast";
 
 function App() {
   const [query, setQuery] = useState({ q: "berlin" });
@@ -32,7 +31,7 @@ function App() {
 
   return (
     <div
-      className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+      className={`mx-5 max-md:mx-0 max-md:mt-0  mt-8 z-0 py-5 px-32 max-md:px-10 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
     >
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
@@ -41,8 +40,6 @@ function App() {
         <div>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-          <Forecast title="hourly forecast" items={weather.hourly} />
-          <Forecast title="daily forecast" items={weather.daily} />
         </div>
       )}
     </div>
